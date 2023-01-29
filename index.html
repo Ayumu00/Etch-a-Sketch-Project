@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
     <link rel="stylesheet" href="./styles.css">
-    <title>Sample</title>
+    <title>Ayumu Sketch</title>
 </head>
 <body>
     <div class="container">
         <div class="title">
-            <div class="on-off-pen">ON/OFF</div> 
-            <div class="name-title">Etch a Sketch</div>
-            <div class="what-pen">DEFAULT</div>
+            <div class="on-off-pen"><img src="./images/switch-off.png"></div> 
+            <div class="name-title"></div>
+            <div class="what-pen"><img src="./images/black-pen.png"></div>
         </div>
         <div class="board"></div>
+        <div class="credit"></div>
+    </div>
+
+    <div class="container-2">
         <div class="buttons">
             <div class="color">
-                <button class="default">Default</button>
-                <button class="red">Red</button>
-                <button class="random">Random</button>
+                <button class="default"><img src="./images/black-pen.png"></button>
+                <button class="red"><img src="./images/record.png"></button>
+                <button class="random"><img src="./images/random.png"></button>
             </div>
             <div class="erase">
-                <button class="eraser">Eraser</button>
+                <button class="eraser"><img src="./images/eraser.png"></button>
             </div>
             <div class="size">
-                <input placeholder="size of pixels" type="number" min="2" max="100" value="16">
+                <input placeholder="Pizel Size" type="number" min="2" max="100">
                 <button class="accept-size-btn">Accept Size</button>
             </div>
             <div class="reset">
-                <button class="reset-btn">Reset</button>
+                <button class="reset-btn"><img src="./images/reset.png"></button>
             </div>
         </div>
     </div>

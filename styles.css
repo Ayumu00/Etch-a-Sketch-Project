@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+
 html, body {
     height: 100%;
 }
@@ -6,6 +8,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100%;
+    padding:0;
+    margin:0;
+    font-family: 'Kavoon', cursive;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.534),rgb(202, 175, 175));
 }
 
 .container {
@@ -14,19 +21,33 @@ body {
     align-items: center;
 }
 
+.container-2 {
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+
+}
+
 .board {
     height: 500px;
     width: 680px;
     display: grid;
-    border: 2px solid black;
+    border: 10px solid rgb(56, 42, 42);
+    border-radius: 15px;
+    box-shadow: 0 0 7rem black;
 }
 
 .buttons {
     display: flex;
+    flex-direction: column;
 }
 
 input{
     text-align: center;
+    height: 30px;
+    border: 3px solid black;
+    font-family: 'Kavoon', cursive;
 }
 
 .size {
@@ -37,16 +58,85 @@ input{
 .title {
     display: flex;
     width: 100%;
+    align-items: flex-end;
 }
 
-.name-title {
-
-}
 .on-off-pen {
     flex:1;
 }
 .what-pen {
-flex:1;
-text-align: right;
+    flex:1;
+    text-align: right;
 }
     
+.on-off-pen img{
+    height: auto;
+    width: 50px;
+    margin-bottom: -15px;
+}
+
+.random img, .red img, .default img{
+    height: 40px;
+    width: 40px;
+}
+
+.erase img {
+    height: 40px;
+    width: 73.5px;
+}
+
+.reset-btn img {
+    height: 60px;
+    width: 73.5px;
+}
+
+.what-pen img{
+    height: auto;
+    width: 40px;
+}
+
+.color {
+    display: flex;
+    flex-direction: column;
+}
+
+.accept-size-btn {
+    height: 50px;
+    font-family: 'Kavoon', cursive;
+}
+
+.name-title {
+    font-size: 30px;
+}
+
+.color button {
+    background-image: linear-gradient(rgb(86, 94, 139),rgb(127, 161, 105));
+}
+
+.erase button {
+    background-image: linear-gradient(rgba(133, 64, 64, 0.733),rgb(113, 144, 211));
+}
+
+.reset button {
+    background-image: linear-gradient(rgb(202, 64, 64),rgb(139, 116, 105));
+}
+
+.accept-size-btn{
+    background-image: linear-gradient(rgb(211, 195, 198),rgb(122, 141, 122));
+}
+
+.credit {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+button {
+    transition: all .10s ease;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.button-trans {
+    transform: scale(1.2);
+    border-color: #cdd82d;
+}

@@ -8,6 +8,9 @@ const redColorBtn = document.querySelector(".red");
 const randomColorBtn = document.querySelector(".random");
 const onOffPen = document.querySelector(".on-off-pen");
 const whatPen = document.querySelector(".what-pen");
+const selectAllTheButtonTrans = document.querySelectorAll("button");
+const titleName = document.querySelector(".name-title");
+const creditName = document.querySelector(".credit");
 
 let switchMouse = true;
 let backgroundColorHover = "black";
@@ -19,6 +22,8 @@ function grid(size){
     boardDiv.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     for (let i = 0; i < (size*size); i++){
         const newDiv = document.createElement("div");
+        newDiv.style.border = "1px solid #E0E0E0";
+        newDiv.style.background = "white";
         boardDiv.appendChild(newDiv);
     }
 }
@@ -62,12 +67,45 @@ function write(){
     if (switchMouse){
         switchMouse=false;
         hover()
-        onOffPen.textContent = "On";
+        onOffPen.firstChild.src = "./images/switch-on.png";
     } else {
         switchMouse=true;
         hover()
-        onOffPen.textContent = "Off";
+        onOffPen.firstChild.src = "./images/switch-off.png";
     }
+}
+
+function removeTransition(e){
+    e.target.classList.remove("button-trans");
+}
+
+function transitionButtonStart(){
+    this.classList.add("button-trans")
+}
+
+function outLineBorder(whichButton){
+    if (whichButton == "eraser"){
+        eraserBtn.style.borderColor = "red";
+        defaultColorBtn.style.borderColor = "black";
+        redColorBtn.style.borderColor = "black";
+        randomColorBtn.style.borderColor = "black";
+    } else if (whichButton == "black"){
+        eraserBtn.style.borderColor = "black";
+        defaultColorBtn.style.borderColor = "red";
+        redColorBtn.style.borderColor = "black";
+        randomColorBtn.style.borderColor = "black";
+    } else if (whichButton == "random"){
+        eraserBtn.style.borderColor = "black";
+        defaultColorBtn.style.borderColor = "black";
+        redColorBtn.style.borderColor = "black";
+        randomColorBtn.style.borderColor = "red";
+    } else if (whichButton == "red"){
+        eraserBtn.style.borderColor = "black";
+        defaultColorBtn.style.borderColor = "black";
+        redColorBtn.style.borderColor = "red";
+        randomColorBtn.style.borderColor = "black";
+    }
+    
 }
 
 grid(16);
@@ -81,18 +119,53 @@ resetBtn.addEventListener("click",()=>{
 })
 eraserBtn.addEventListener("click",()=>{
     backgroundColorHover = "white";
-    whatPen.textContent = "ERASER";
+    whatPen.firstChild.src = "./images/eraser.png";
+    outLineBorder("eraser");
 });
 defaultColorBtn.addEventListener("click",()=>{
     backgroundColorHover= "black";
-    whatPen.textContent = "DEFAULT";
+    whatPen.firstChild.src = "./images/black-pen.png";
+    outLineBorder("black");
 })
 redColorBtn.addEventListener("click",()=>{
     backgroundColorHover="red";
-    whatPen.textContent = "RED";
+    whatPen.firstChild.src = "./images/record.png";
+    outLineBorder("red");
 })
 
 randomColorBtn.addEventListener("click",()=>{
     backgroundColorHover="random";
-    whatPen.textContent = "RANDOM";
+    whatPen.firstChild.src = "./images/random.png";
+    outLineBorder("random");
 })
+
+selectAllTheButtonTrans.forEach(buttonTrans => {
+    buttonTrans.addEventListener("click", transitionButtonStart)
+})
+
+selectAllTheButtonTrans.forEach(buttonTransEnd => {
+    buttonTransEnd.addEventListener("transitionend", removeTransition)
+})
+
+
+// Etch a Sketch
+let titleColor = "Etch a Sketch";
+for (let i = 0; i < titleColor.length; i++){
+    let spans = document.createElement("span");
+    spans.textContent = titleColor[i];
+    spans.style.color = `#${Math.floor(Math.random()*16777215).toString(16)}`
+    spans.style.fontWeight = "bold";
+    titleName.appendChild(spans);
+}
+
+// My Name
+let myName = "Created By Ayumu!";
+for (let i = 0; i < myName.length; i++){
+    let spans = document.createElement("span");
+    spans.textContent = myName[i];
+    spans.style.fontWeight = "bold";
+    if (i >= 11){
+        spans.style.color = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    }
+    creditName.appendChild(spans);
+}
