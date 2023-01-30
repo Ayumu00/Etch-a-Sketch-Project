@@ -340,3 +340,65 @@ button {
     }
     
 }
+
+@media (max-height: 350px) and (max-width:280px){
+    .board {
+        height: 150px;
+        width: 220px;
+    }
+
+    body {
+        gap: 0px;
+    }
+
+    .erase img {
+        height: 27px;
+        width: 30px;
+    }
+
+    .reset-btn img {
+        height: 27px;
+        width: 30px;
+    }
+    
+    .random img, .red img, .default img{
+        height: 23px;
+        width: 23px;
+    }
+
+    .accept-size-btn {
+        height: 20px;
+        font-size: 10px;
+    }
+
+    input {
+        font-size: 10px;
+        height: 10px;
+    }
+
+    .credit {
+        margin-top: 2px;
+        font-size: 12px;
+    }
+
+    .name-title {
+        font-size: 12px;
+    }
+    
+    .what-pen img{
+        height: auto;
+        width: 15px;
+    }
+
+    .on-off-pen img{
+        height: auto;
+        width: 28px;
+        margin-bottom: -10px;
+        cursor: pointer;
+    }
+
+    .on-off-pen {
+        display: inline-block;
+    }
+    
+}
