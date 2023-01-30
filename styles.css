@@ -142,6 +142,10 @@ button {
     border-color: #cdd82d;
 }
 
+.Press-Button-E {
+    font-size: 20px;
+}
+
 /* Mobile Support */
 @media (max-width: 500px){
     .board {
@@ -199,5 +203,78 @@ button {
         height: 70px;
         width: 70px;
     }
+
+    .Press-Button-E {
+        font-size: 5px;
+        margin-left: 5px;
+        color: transparent;
+    }
+
+    .on-off-pen img{
+        height: auto;
+        width: 45px;
+        margin-bottom: -30px;
+        cursor: pointer;
+    }
     
+}
+
+@media (max-width: 280px){
+    .board {
+        height: 300px;
+        width: 250px;
+    }
+
+    body {
+        gap: 10px;
+    }
+
+    .erase img {
+        height: 40px;
+        width: 50px;
+    }
+
+    .reset-btn img {
+        height: 42px;
+        width: 50px;
+    }
+    
+    .random img, .red img, .default img{
+        height: 40px;
+        width: 40px;
+    }
+
+    .accept-size-btn {
+        height: 30px;
+    }
+
+    input {
+        font-size: 10px;
+        height: 20px;
+    }
+
+    .credit {
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    .name-title {
+        font-size: 20px;
+    }
+    
+    .what-pen img{
+        height: auto;
+        width: 24px;
+    }
+
+    .on-off-pen img{
+        height: auto;
+        width: 35px;
+        margin-bottom: -10px;
+        cursor: pointer;
+    }
+
+    .on-off-pen {
+        display: inline-block;
+    }
 }

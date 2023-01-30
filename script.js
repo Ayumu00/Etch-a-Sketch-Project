@@ -90,6 +90,12 @@ function transitionButtonStart(){
     this.classList.add("button-trans")
 }
 
+function pressE(e){
+    if (e.keyCode == "69"){
+        write();
+    }
+}
+
 function outLineBorder(whichButton){
     if (whichButton == "eraser"){
         eraserBtn.style.borderColor = "red";
@@ -121,7 +127,7 @@ hover();
 inputUser.addEventListener("keydown",whenPressed);
 onOffPenBtn.addEventListener("click",write);
 acceptSizeBtn.addEventListener("click",whenClicked);
-boardDiv.addEventListener("mouseup",write);
+window.addEventListener("keydown",pressE);
 resetBtn.addEventListener("click",()=>{
     let mainDiv = boardDiv.querySelectorAll("div");
     mainDiv.forEach(divReset => divReset.style.background = "white")
