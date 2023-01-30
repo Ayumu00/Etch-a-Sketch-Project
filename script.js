@@ -11,6 +11,7 @@ const whatPen = document.querySelector(".what-pen");
 const selectAllTheButtonTrans = document.querySelectorAll("button");
 const titleName = document.querySelector(".name-title");
 const creditName = document.querySelector(".credit");
+const onOffPenBtn = onOffPen.querySelector("img");
 
 let switchMouse = true;
 let backgroundColorHover = "black";
@@ -31,7 +32,9 @@ function grid(size){
 function whenPressed(e){
     if (e.keyCode == "13" && (this.value >= 2 && this.value <= 100)){
         grid(this.value);
-        switchMouse=true;
+        switchMouse=false;
+        write();
+        
     }
 }
 
@@ -49,27 +52,31 @@ function coloringFunc(){
 function whenClicked(e){
     if (inputUser.value >= 2 && inputUser.value <= 100){
         grid(inputUser.value);
-        switchMouse=true;
+        switchMouse=false;
+        write();
+        
     }
 }
 
 function hover(){
     if (!switchMouse){
         let DivSelectAllHover = boardDiv.querySelectorAll("div");
-        DivSelectAllHover.forEach(selectDiv => selectDiv.addEventListener("mouseover", coloringFunc));
+        DivSelectAllHover.forEach(selectDiv => selectDiv.removeEventListener("mouseover", coloringFunc));
+        DivSelectAllHover.forEach(selectDiv => selectDiv.removeEventListener("touchmove", coloringFunc));
     } else if (switchMouse) {
         let DivSelectAllHover = boardDiv.querySelectorAll("div");
-        DivSelectAllHover.forEach(selectDiv => selectDiv.removeEventListener("mouseover", coloringFunc));
+        DivSelectAllHover.forEach(selectDiv => selectDiv.addEventListener("mouseover", coloringFunc));
+        DivSelectAllHover.forEach(selectDiv => selectDiv.addEventListener("touchmove", coloringFunc));
     }
 }
 
 function write(){
-    if (switchMouse){
-        switchMouse=false;
+    if (!switchMouse){
+        switchMouse=true;
         hover()
         onOffPen.firstChild.src = "./images/switch-on.png";
-    } else {
-        switchMouse=true;
+    } else if (switchMouse) {
+        switchMouse=false;
         hover()
         onOffPen.firstChild.src = "./images/switch-off.png";
     }
@@ -109,10 +116,12 @@ function outLineBorder(whichButton){
 }
 
 grid(16);
+hover();
 
 inputUser.addEventListener("keydown",whenPressed);
-boardDiv.addEventListener("click", write);
-acceptSizeBtn.addEventListener("click",whenClicked)
+onOffPenBtn.addEventListener("click",write);
+acceptSizeBtn.addEventListener("click",whenClicked);
+boardDiv.addEventListener("mouseup",write);
 resetBtn.addEventListener("click",()=>{
     let mainDiv = boardDiv.querySelectorAll("div");
     mainDiv.forEach(divReset => divReset.style.background = "white")

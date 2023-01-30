@@ -73,6 +73,7 @@ input{
     height: auto;
     width: 50px;
     margin-bottom: -15px;
+    cursor: pointer;
 }
 
 .random img, .red img, .default img{
@@ -139,4 +140,64 @@ button {
 .button-trans {
     transform: scale(1.2);
     border-color: #cdd82d;
+}
+
+/* Mobile Support */
+@media (max-width: 500px){
+    .board {
+        height: 400px;
+        width: 300px;
+        display: grid;
+        border: 10px solid rgb(56, 42, 42);
+        border-radius: 15px;
+        box-shadow: 0 0 7rem black;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-2 {
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        border: 0px solid black;
+    
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100%;
+        height: 100vh;
+        gap: 30px;
+        padding:0;
+        margin:0;
+        font-family: 'Kavoon', cursive;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.534),rgb(202, 175, 175));
+    }
+
+    .color {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .mobile-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .erase img {
+        height: 60px;
+        width: 73.5px;
+    }
+    
+    .random img, .red img, .default img{
+        height: 70px;
+        width: 70px;
+    }
+    
 }
